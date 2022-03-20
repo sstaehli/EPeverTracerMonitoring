@@ -1,3 +1,5 @@
+**UNDER RESTRUCTUR**E!
+
 Monitoring EPsolar UPower and Tracer devices from Raspberry Pi with Python via RS-485
 ===================================================
 
