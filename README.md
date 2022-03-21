@@ -56,7 +56,7 @@ The [grafana/](grafana/) folder contains the dashboard to monitor realtime and h
 
 Use [this guide](https://simonhearne.com/2020/pi-influx-grafana/) to install InfluxDB and Grafana on Raspberry Pi
 
-Run http://raspberrypi.local:3000 (or whatever your name for the Raspberry Pi is) to configure the Grafana console
+Run http://local.ip:3000 to configure the Grafana console
 
 When you add InfluxDB as a Data Source. Influx DB should be set up with the following parameters:
 
