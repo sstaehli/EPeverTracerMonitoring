@@ -56,9 +56,13 @@ ToDo
 Logging options
 ---------------
 InfluxDB - used for Grafana visualization (for multiple devices, the watt data is agdregated)
+
 File - separate file for each controller in dictionary structured format - to process or to integrate the data with other systems
+
 MQTT - ToDo
+
 Single registry check (volt, amp...) - mainly for testing
+
 
 Grafana Dashboard
 -----------------
