@@ -28,7 +28,7 @@ If all goes well you should see `ttyXRUSB` when listing `ls /dev/tty*`
 
 Device communications protocols
 -------------------------------
-* [Protocol for Epsolar Tracer] Check the pdf in the folder
+* [Protocol for Epsolar Tracer] Check the pdf in folder: epsolars-docs
 
 Python modules
 --------------
