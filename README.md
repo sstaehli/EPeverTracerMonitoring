@@ -40,7 +40,7 @@ If all goes well you should see `ttyXRUSB` when listing `ls /dev/tty*`
 
 Device communications protocols
 -------------------------------
-* [Protocol for Epsolar Tracer] Check the pdf in folder: epsolars-docs
+* [Protocol for Epsolar Tracer] Check the pdf in folder: [epsolars-docs/](epsolars-docs/)
 
 Python modules
 --------------
@@ -88,6 +88,11 @@ When you add InfluxDB as a Data Source. Influx DB should be set up with the foll
 At this point you can also import SolarDashboard from [grafana/](grafana/) folder.
 
 Use "solar" dataset to import the values from when setting up the console.
+
+## Make Grafana dashboard public
+
+Check folder [www/](www/) for details
+
 
 Multiple Tracer chargers in parallel - configuration
 ----------------------------------------------------
