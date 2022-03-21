@@ -14,6 +14,10 @@ Main features:
 * Multiple charge controllers supported
 * Configuration options
 
+Future enhancements:
+* Cloud integration
+* Complete solution - plug and run
+
 ## Requirements
 - Linux - any distro - Debian, Ubuntu, Raspbian...
 - Python 3 (python2 not supported)
