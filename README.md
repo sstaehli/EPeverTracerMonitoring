@@ -19,7 +19,7 @@ Make sure you install the Linux driver for Exar USB UART first
 The [xr_usb_serial_common](xr_usb_serial_common-1a/) directory contains the makefile and instructions that will compile properly on Liux. Before compiling be sure to install the linux headers.
 Working with newest kernels (tested on 5.13)
 
-* xr_serial kernel module is not suitable for communication
+* xr_serial stock kernel module is not suitable for communication with Epever devices
 
 The resulting `xr_usb_serial_common.ko` file will need to be moved to `/lib/modules/YOUR_LINUX_VERSION/extra/`.
 After building and moving the module, remove the xr_serial (cdc-acm on raspbian) that automatically installs for the usb-485 adapter.
