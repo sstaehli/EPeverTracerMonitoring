@@ -26,7 +26,8 @@ Installation
 	# dkms build -m xr_usb_serial_common -v 1a
 	# dkms install -m xr_usb_serial_common -v 1a
 
-* Ensure that thecdc-acm module is not loaded (assumig that it is not needed)
+* Ensure that the cdc-acm module/xr_serial is not loaded (assumig that it is not needed):
+	Example:
 	# echo blacklist cdc-acm > /etc/modprobe.d/blacklist-cdc-acm.conf 
 	# update-initramfs -u
 
@@ -40,14 +41,15 @@ Tips for Debugging
 * Check that the USB UART is detected by the system
 
 	# lsusb
+	similar to this > Bus 004 Device 003: ID 04e2:1411 Exar Corp. XR21B1411
 
 * Check that the CDC-ACM driver was not installed for the Exar USB UART
 
 	# ls /dev/tty*
 
-	To remove the CDC-ACM driver and install the driver:
+	To remove the CDC-ACM/xr_serial  driver and install the driver:
 
-	# rmmod cdc-acm
+	# rmmod cdc-acm / rmmod xr_serial 
 	# modprobe -r usbserial
 	# modprobe usbserial
 	# insmod ./xr_usb_serial_common.ko
