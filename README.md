@@ -1,4 +1,4 @@
-**UNDER RESTRUCTUR**
+**UNDER RESTRUCTUR - not ready to be used**
 
 Monitoring EPsolar Tracer devices with Python via RS-485 with various logging options 
 ======================================================================================
