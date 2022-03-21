@@ -89,4 +89,7 @@ At this point you can also import SolarDashboard from [grafana/](grafana/) folde
 
 Use "solar" dataset to import the values from when setting up the console.
 
+Multiple Tracer chargers in parallel - configuration
+----------------------------------------------------
+![Img](epsolars-docs/tracer_in_parallel.png)
 
