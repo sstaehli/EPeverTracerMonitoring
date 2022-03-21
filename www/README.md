@@ -7,4 +7,4 @@ You could do that from Grafana Dashboard->Panel->Share->Direct image rendered im
 
 **Requirements**
 
-Grafana Image Renderer plugin - this plugin has a lot of system dependencies. Switch on the Grafana debuging and check the log in order to resolve this
+Grafana Image Renderer plugin - this plugin has a lot of system dependencies. Switch on the Grafana debuging and check the log in order to resolve this. Personaly I didn't found a complete documentation which libraries a required.
