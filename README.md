@@ -16,7 +16,7 @@ Main features:
 
 ## Requirements
 - Linux - any distro - Debian, Ubuntu, Raspbian...
-- Python 3 
+- Python 3 (python2 not supported)
 - Influx DB and its Python modules
 - Grafana
 - Paho-MQTT 
