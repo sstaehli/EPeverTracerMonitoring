@@ -34,7 +34,7 @@ Working with newest kernels (tested on 5.13)
 The resulting `xr_usb_serial_common.ko` file will need to be moved to `/lib/modules/YOUR_LINUX_VERSION/extra/`.
 After building and moving the module, remove the xr_serial (cdc-acm on raspbian) that automatically installs for the usb-485 adapter.
 
-You will also need to add the xr_serial (cdc-acm on raspbian) to the system blacklist:
+You will also need to add the xr_serial (cdc-acm on raspbian) to the system blacklist!
 
 If all goes well you should see `ttyXRUSB` when listing `ls /dev/tty*`
 
