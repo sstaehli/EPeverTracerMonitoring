@@ -4,6 +4,7 @@ Monitoring EPsolar Tracer devices with Python via RS-485 with various logging op
 ======================================================================================
 
 **EPSolar Tracer** AN/BN devices have been around for a while so this is just another attempt to establish a good monitoring package.
+**Supporting multiple controlers** via PAL-ADP Parallel Adapter (up to 6 controllers)
 
 ## Requirements
 - Linux - any distro - Debian, Ubuntu, Raspbian...
@@ -43,12 +44,17 @@ Logging scripts
 ---------------
 ToDo
 
+Logging options
+---------------
+InfluxDB - used for Grafana visualization
+File - 
+
 ## Setting up a cron job to run this script regularly:
 
 ToDo
 
 Grafana Dashboard
---------------------
+-----------------
 Some very basic knowledge of InfluxDB and Grafana is assumed here.
 
 ![Img](grafana/screenshot.png)
