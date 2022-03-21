@@ -5,6 +5,7 @@ Monitoring EPsolar Tracer devices via RS-485 with various logging options
 
 **EPSolar Tracer** AN/BN devices have been around for a while so this is just another attempt to establish a good monitoring package.
 **Supporting multiple controlers** via PAL-ADP Parallel Adapter (up to 6 controllers).
+
 Main features:
 * Data logging to DB, file, MQTT
 * Grafana dashboard
