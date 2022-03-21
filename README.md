@@ -55,7 +55,7 @@ ToDo
 
 Logging options
 ---------------
-InfluxDB - used for Grafana visualization (for multiple devices, the watt data is agdregated)
+InfluxDB - used for Grafana visualization (for multiple devices, the watt data is aggregated)
 
 File - separate file for each controller in dictionary structured format - to process or to integrate the data with other systems
 
