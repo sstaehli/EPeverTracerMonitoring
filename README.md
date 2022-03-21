@@ -10,6 +10,9 @@ Main features:
 * Data logging to DB, file, MQTT
 * Grafana dashboard
 * Error logs
+* Device communication issues handling
+* Multiple charge controllers supported
+* Configuration options
 
 ## Requirements
 - Linux - any distro - Debian, Ubuntu, Raspbian...
