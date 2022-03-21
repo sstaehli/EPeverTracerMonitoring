@@ -14,6 +14,7 @@ Monitoring EPsolar Tracer devices via RS-485 with various logging options
 - Paho-MQTT 
 - To communicate with the devices you will need [Minimal Modbus](https://minimalmodbus.readthedocs.io/en/stable/) module for Python
 - CC-USB-RS485-150U cable
+- PAL-ADP (optional)
 
 Make sure you install the Linux driver for Exar USB UART first
 --------------------------------------------------------------
