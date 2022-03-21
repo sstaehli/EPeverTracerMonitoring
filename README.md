@@ -98,3 +98,8 @@ Multiple Tracer chargers in parallel - configuration
 ----------------------------------------------------
 ![Img](epsolars-docs/tracer_in_parallel.png)
 
+
+Known BUGS
+----------
+Communication issues could occure in parallel configuraion. Assumption - the bus is busy during the communication between Tracer devices. PAL-ADP regularly check the connected devices if necessary to adjust the charging parameters. In case of such scenario the script is returning -2 which could create artefacts in your graphs. At the moment this is mitigated with error handling and timeouts - reducing these cases to minimum.
+
