@@ -13,7 +13,7 @@ Grafana Image Renderer plugin - this plugin has a lot of system dependencies. Sw
 
 $URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=4&width=430&height=200&tz=Europe%2FSofia"
 
-Pay attention to '000000001' this is the dashboard id. Ensure panelId has proper as well- this is the actual panel you are rendering
+Pay attention to '000000001' this is the dashboard id. Ensure 'panelId' has proper value as well- this is the actual panel you are rendering
 
 Scripts
 -------
