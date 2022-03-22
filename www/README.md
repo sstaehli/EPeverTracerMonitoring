@@ -9,5 +9,11 @@ You could do that from Grafana Dashboard->Panel->Share->Direct image rendered im
 
 Grafana Image Renderer plugin - this plugin has a lot of system dependencies. Switch on the Grafana debuging and check the log in order to resolve this. Personaly I didn't found a complete documentation describing which libraries a required.
 
+** URL format **
+
+$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=4&width=430&height=200&tz=Europe%2FSofia"
+
+Pay attention to '000000001' this is the dashboard id. Ensure panelId has proper as well- this is the actual panel you are rendering
+
 Scripts
 -------
