@@ -2,13 +2,14 @@
 BASEDIR="/var/www/energy"
 EPOCH=`/bin/date +%s`
 STARTEPOCH=`expr $EPOCH - 10800`
+URL="http://local.ip:3000"
 
-bacharge="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=4&width=430&height=200&tz=Europe%2FSofia";
-bavolt="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=22&width=430&height=200&tz=Europe%2FSofia";
-pvwatt="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=20&width=430&height=200&tz=Europe%2FSofia";
-totalwatt="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=33&width=430&height=200&tz=Europe%2FSofia";
-pvva="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=30&width=1720&height=200&tz=Europe%2FSofia";
-bavolt1="http://grafana.karadimov.info:3000/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to=&"$EPOCH"000&panelId=14&width=1720&height=200&tz=Europe%2FSofia";
+bacharge="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=4&width=430&height=200&tz=Europe%2FSofia";
+bavolt="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=22&width=430&height=200&tz=Europe%2FSofia";
+pvwatt="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=20&width=430&height=200&tz=Europe%2FSofia";
+totalwatt="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=33&width=430&height=200&tz=Europe%2FSofia";
+pvva="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to="$EPOCH"000&panelId=30&width=1720&height=200&tz=Europe%2FSofia";
+bavolt1="$URL/render/d-solo/000000001/solar?orgId=1&refresh=30s&from="$STARTEPOCH"000&to=&"$EPOCH"000&panelId=14&width=1720&height=200&tz=Europe%2FSofia";
 
 `/usr/bin/wget -q --output-document=$BASEDIR/bacharge_tmp.png $bacharge`
 `/usr/bin/wget -q --output-document=$BASEDIR/bavolt_tmp.png $bavolt`
