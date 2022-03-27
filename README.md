@@ -55,7 +55,14 @@ ToDO
 
 Logging scripts
 ---------------
-ToDo
+* logtracer.py - this is the main python program collecting the data from Tracer devices
+
+The program require two parameter in different combinations:
+
+logtracer.py <device id> <check name> -> console output
+  
+logtracer.py <device id>,<device id> filesnap/dbsnap -> /tmp/ep_tracer_<id>.log / influxdb(grafana) (agregated kW, other stats from first id)
+
 
 Logging options
 ---------------
