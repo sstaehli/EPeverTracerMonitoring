@@ -55,19 +55,21 @@ ToDO
 
 Logging scripts
 ---------------
-logtracer.py - this is the main python program collecting the data from Tracer devices
+logtracer.py - this is the main python program collecting the data from Tracer devices. Could be executed from CRON. *Do not execute in interval less then 1 minute
 
 The program require two parameter in different combinations:
 
 logtracer.py deviceid checkname -> console output
   
-logtracer.py deviceid,deviceid filesnap/dbsnap -> /tmp/ep_tracer_id.log / influxdb(grafana) (agregated kW, other stats from first id)
+logtracer.py deviceid,deviceid filesnap/dbsnap -> /tmp/ep_tracer_id.log / influxdb(grafana) (aggregated kW, other stats from first id)
 
 * device id - The Tracer devices should have unique id in parallel configuration - from 1 to 6. The default id is 1.
 * check name - Available checks: pvvolt pvamps pvwatt bavolt baamps bawatt batemp baperc bastat eptemp1 eptemp2 epstat dcvolt dcamps dcwatt pvkwhtotal dckwhtotal pvkwhtoday dckwhtoday
-* filename - write the check result in /tmp/ep_tracer_id.log (id is a number - the id of the controller
-* dbsnap - sending the date to influx db (grafana)
+* filesnap - write the checks result in /tmp/ep_tracer_id.log (id is a number - the id of the controller
+* dbsnap - sending the data to influx db (grafana)
 * mqtt - ToDo
+
+get_tracer.sh - bash script specifically created to parse the data from filesnap function - useful for application integration or trigger creation
 
 Logging options
 ---------------
