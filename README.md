@@ -55,7 +55,7 @@ ToDO
 
 Logging scripts
 ---------------
-logtracer.py - this is the main python program collecting the data from Tracer devices. Could be executed from CRON. *Do not execute in interval less then 1 minute
+logtracer.py - this is the main python program collecting the data from Tracer devices. Could be executed from CRON. **Do not execute in interval less then 1 minute
 
 The program require two parameter in different combinations:
 
@@ -70,6 +70,8 @@ logtracer.py deviceid,deviceid filesnap/dbsnap -> /tmp/ep_tracer_id.log / influx
 * mqtt - ToDo
 
 get_tracer.sh - bash script specifically created to parse the data from filesnap function - useful for application integration or trigger creation
+
+**Ensure influx.db is updated before the first use
 
 Logging options
 ---------------
