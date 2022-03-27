@@ -59,7 +59,7 @@ logtracer.py deviceid checkname -> console output
   
 logtracer.py deviceid,deviceid filesnap/dbsnap -> /tmp/ep_tracer_id.log / influxdb(grafana) (aggregated kW, other stats from first id)
 
-* device id - The Tracer devices should have unique id in parallel configuration - from 1 to 6. The default id is 1. For monitoring of multiple devices separate the IDs with comma 
+* device id - The Tracer devices should have unique id in parallel configuration - from 1 to 6. The default id is 1. For monitoring of multiple devices, separate the IDs with comma 
 * check name - Available checks: pvvolt pvamps pvwatt bavolt baamps bawatt batemp baperc bastat eptemp1 eptemp2 epstat dcvolt dcamps dcwatt pvkwhtotal dckwhtotal pvkwhtoday dckwhtoday
 * filesnap - write the checks result in /tmp/ep_tracer_id.log (id is a number - the id of the controller
 * dbsnap - sending the data to influx db (grafana)
