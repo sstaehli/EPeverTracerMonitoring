@@ -1,5 +1,3 @@
-**UNDER RESTRUCTURING - not ready to be used**
-
 Monitoring EPsolar Tracer devices via RS-485 with various logging options 
 =========================================================================
 
