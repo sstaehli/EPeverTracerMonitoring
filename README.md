@@ -122,3 +122,10 @@ Communication issues could occure in parallel configuraion. Assumption - the bus
 * Fixing Grafana DB
 
 [fix_influx.sh](fix_influx.sh) is a script which will fix the db in case of communication issues as result of the mentioined known bug
+
+ToDo
+----
+
+MQTT integration
+
+Cloud service integration
