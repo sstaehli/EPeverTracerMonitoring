@@ -17,3 +17,6 @@ Pay attention to '000000001' this is the dashboard id. Ensure 'panelId' has prop
 
 Scripts
 -------
+
+get_img.sh - suitable for cron execution bash script collecting the grafana panel images
+index.html - just a simple web page for your web server
