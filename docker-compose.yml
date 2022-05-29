@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  solartracker:
+    build: .
+    image: python4st:latest
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+
+
+
