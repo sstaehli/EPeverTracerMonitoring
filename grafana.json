@@ -1,0 +1,946 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": false,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "yellow",
+                  "value": 160
+                },
+                {
+                  "color": "red",
+                  "value": 200
+                }
+              ]
+            },
+            "unit": "watt"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "batt_soc Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "displayName",
+                  "value": "Battery"
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "bypass_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Bypass"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "inv_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Inverter"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "util_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.5.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"batt_soc\" or\r\n    r._field == \"pv_pwr\" or\r\n    r._field == \"pv_charge_pwr\" or\r\n    r._field == \"util_pwr\" or\r\n    r._field == \"inv_pwr\" or\r\n    r._field == \"bypass_pwr\"\r\n  )",
+            "refId": "A"
+          }
+        ],
+        "title": "Power",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "yellow",
+                  "value": 160
+                },
+                {
+                  "color": "red",
+                  "value": 200
+                }
+              ]
+            },
+            "unit": "watt"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "batt_soc Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "displayName",
+                  "value": "Battery"
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "bypass_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Bypass"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "inv_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Inverter"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "util_pwr Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 0,
+          "y": 9
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "8.5.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"batt_soc\" or\r\n    r._field == \"pv_pwr\" or\r\n    r._field == \"pv_charge_pwr\" or\r\n    r._field == \"util_pwr\" or\r\n    r._field == \"inv_pwr\" or\r\n    r._field == \"bypass_pwr\"\r\n  )",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "hide": false,
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"batt_soc\" or\r\n    r._field == \"pv_pwr\" or\r\n    r._field == \"pv_charge_pwr\" or\r\n    r._field == \"util_pwr\" or\r\n    r._field == \"inv_pwr\" or\r\n    r._field == \"bypass_pwr\"\r\n  )",
+            "refId": "B"
+          }
+        ],
+        "title": "Power",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "volt"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "batt_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Battery"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_charge_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV Charge"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "util_charge_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 18
+        },
+        "id": 5,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"pv_volt\" or\r\n    r._field == \"pv_charge_volt\" or\r\n    r._field == \"util_charge_volt\" or\r\n    r._field == \"batt_volt\"\r\n  )",
+            "refId": "A"
+          }
+        ],
+        "title": "DC Voltages",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "amp"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_charge_cur Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV Charge"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "pv_cur Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "PV"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "util_charge_cur Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility Charge"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 26
+        },
+        "id": 9,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"util_charge_cur\" or\r\n    r._field == \"pv_cur\" or\r\n    r._field == \"pv_charge_cur\"\r\n  )",
+            "refId": "A"
+          }
+        ],
+        "title": "DC Currents",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "volt"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "inv_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Inverter"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "util_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "bypass_volt Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Utility"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 34
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"bypass_volt\" or\r\n    r._field == \"util_volt\" or\r\n    r._field == \"inv_volt\"\r\n  )",
+            "refId": "A"
+          }
+        ],
+        "title": "AC Voltages",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "amp"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "bypass_cur Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Bypass"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "inv_cur Upower3222-10"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Inverter"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 42
+        },
+        "id": 8,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"inv_cur\" or\r\n    r._field == \"bypass_cur\"\r\n  )",
+            "refId": "A"
+          }
+        ],
+        "title": "AC Currents",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cySJq0r7k"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 50
+        },
+        "id": 11,
+        "options": {
+          "border": {
+            "color": "yellow",
+            "size": 0
+          },
+          "fieldSets": [
+            {
+              "col": 1,
+              "color": "#fced97",
+              "dotSize": 3,
+              "hidden": false,
+              "lineSize": 1,
+              "lineType": "none",
+              "polynomialOrder": 3,
+              "sizeCol": -1
+            }
+          ],
+          "grid": {
+            "color": "gray"
+          },
+          "label": {
+            "col": -1,
+            "color": "#CCC",
+            "textSize": 2
+          },
+          "legend": {
+            "show": false,
+            "size": 0
+          },
+          "xAxis": {
+            "col": 2,
+            "inverted": false
+          },
+          "xAxisExtents": {
+            "max": 50,
+            "min": 0
+          },
+          "xAxisTitle": {
+            "color": "white",
+            "logScale": false,
+            "rotated": false,
+            "text": "Voltage [V]",
+            "textSize": 2
+          },
+          "xMargins": {
+            "lower": 30,
+            "upper": 10
+          },
+          "yAxisExtents": {
+            "max": 395,
+            "min": 0
+          },
+          "yAxisTitle": {
+            "color": "#777",
+            "logScale": false,
+            "rotated": true,
+            "text": "Power [W]",
+            "textSize": 1
+          },
+          "yMargins": {
+            "lower": 20,
+            "upper": 20
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "cySJq0r7k"
+            },
+            "query": "volt = from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"pv_volt\"\r\n  )\r\n\r\npwr = from(bucket: \"solardata\")\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"pv_pwr\"\r\n  )\r\n\r\njoin(\r\n    tables: {pwr, volt},\r\n    on: [\"_time\", \"_stop\", \"_start\", \"inverter\"],\r\n)",
+            "refId": "A"
+          }
+        ],
+        "title": "MPP Tracker",
+        "type": "michaeldmoore-scatter-panel"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 36,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "PV",
+    "uid": "J9iGe097k",
+    "version": 5,
+    "weekStart": ""
+  }
