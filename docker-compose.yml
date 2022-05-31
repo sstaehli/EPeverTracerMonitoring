@@ -1,11 +1,70 @@
 version: "3"
 
 services:
-  solartracker:
+
+  epsolartracker:
     build: .
     image: python4st:latest
+    volumes:
+      - ./scripts:/upowerlog
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/ttyXRUSB0:/dev/ttyXRUSB0"
+    depends_on:
+      - db
+
+  db:
+    image: influxdb:2.0
+    volumes:
+      - ./db/influxdb2:/var/lib/influxdb2
+      - ./db/conf/config.yml:/etc/influxdb2/config.yml
+    environment:
+      - INFLUXDB_DB=solardata
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=admin 
+      - INFLUXDB_ADMIN_PASSWORD=solar
+      - INFLUXDB_USER=grafana
+      - INFLUXDB_USER_PASSWORD=solar
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.solardb_http.rule=Host(`solardb.airhead.ch`)"
+        - "traefik.http.routers.solardb_http.middlewares=insecure"
+        - "traefik.http.routers.solardb_http.entrypoints=web"
+        - "traefik.http.routers.solardb_https.rule=Host(`solardb.airhead.ch`)"
+        - "traefik.http.routers.solardb_https.tls=true"
+        - "traefik.http.routers.solardb_https.tls.certresolver=le"
+        - "traefik.http.routers.solardb_https.entrypoints=web-secure"
+        - "traefik.http.services.solardb.loadbalancer.server.port=8086"
+        - "traefik.http.services.solardb.loadbalancer.server.scheme=http"
+        - "traefik.http.services.solardb.loadbalancer.passhostheader=true"
+
+  grafana:
+    image:  grafana/grafana-oss:latest
+    #volumes:
+    #  - ./grafana/data:/var/lib/grafana
+    depends_on:
+      - epsolartracker
+      - db
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.solar_http.rule=Host(`solar.airhead.ch`)"
+        - "traefik.http.routers.solar_http.middlewares=insecure"
+        - "traefik.http.routers.solar_http.entrypoints=web"
+        - "traefik.http.routers.solar_https.rule=Host(`solar.airhead.ch`)"
+        - "traefik.http.routers.solar_https.tls=true"
+        - "traefik.http.routers.solar_https.tls.certresolver=le"
+        - "traefik.http.routers.solar_https.entrypoints=web-secure"
+        - "traefik.http.services.solar.loadbalancer.server.port=3000"
+        - "traefik.http.services.solar.loadbalancer.server.scheme=http"
+        - "traefik.http.services.solar.loadbalancer.passhostheader=true"
+
+    security_opt:
+      - "label:disable"
+    
+networks:
+  default:
+    external:
+      name: traefik_default
+
 
 
 

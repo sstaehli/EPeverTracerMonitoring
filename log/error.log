@@ -1,1 +1,64 @@
 
+2022-05-29 08:05:54,031 - INFO - MODBUS: [Errno 2] could not open port /dev/ttyXRUSB0: [Errno 2] No such file or directory: '/dev/ttyXRUSB0'
+2022-05-29 08:10:30,833 - INFO - MODBUS: [Errno 2] could not open port /dev/ttyXRUSB0: [Errno 2] No such file or directory: '/dev/ttyXRUSB0'
+2022-05-29 08:12:02,924 - INFO - MODBUS: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+2022-05-29 08:13:12,744 - INFO - MODBUS: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+2022-05-29 08:24:48,021 - INFO - MODBUS: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+2022-05-29 08:30:55,090 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:30:56,846 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:31:57,410 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:31:59,166 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:41:08,082 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:41:28,537 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:44:01,259 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:44:12,172 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 08:57:56,053 - INFO - MODBUS: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+2022-05-29 08:58:47,424 - INFO - MODBUS: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+2022-05-29 09:05:50,549 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 09:05:56,892 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 09:07:09,929 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:34:22,802 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:35:17,581 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 10:35:30,410 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 10:36:22,732 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:36:33,802 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:37:03,053 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:37:14,116 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:37:58,385 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:38:18,389 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:41:08,371 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:43:59,767 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:44:39,019 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:47:28,556 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 10:47:35,736 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 10:59:25,115 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 10:59:37,264 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 11:05:53,199 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 11:05:58,249 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 11:07:28,385 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 11:10:36,501 - INFO - TRACER: Write timeout
+2022-05-29 11:56:14,048 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 11:56:25,053 - INFO - TRACER: Write timeout
+2022-05-29 11:57:08,225 - INFO - TRACER: Write timeout
+2022-05-29 11:58:03,016 - INFO - TRACER: Write timeout
+2022-05-29 12:56:28,232 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 12:56:38,295 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 12:57:23,227 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 12:57:30,278 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 13:00:03,470 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 13:00:08,521 - INFO - TRACER: No communication with the instrument (no answer)
+2022-05-29 13:02:45,295 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:14:20,139 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:14:21,896 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:14:32,777 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:14:34,534 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:23:11,840 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:23:13,597 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:25:18,707 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:25:20,465 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:25:59,402 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:26:01,161 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:27:36,390 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:27:38,149 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:39:22,518 - INFO - TRACER: Slave reported illegal data address
+2022-05-29 13:39:24,277 - INFO - TRACER: Slave reported illegal data address

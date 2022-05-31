@@ -1,11 +1,11 @@
 FROM python:latest
 
-RUN pip3 install minimalmodbus influxdb configparser
+RUN pip3 install minimalmodbus influxdb_client
 
 COPY modules/ modules/
-COPY influx.db influx.db
-COPY logtracer.py logtracer.py
+
+WORKDIR /upowerlog/
 
 RUN mkdir -p log/
 
-CMD [ "python" , "logtracer.py", "1", "pvvolt"]
+CMD [ "python" , "upowerlog.py" ]
