@@ -6,7 +6,7 @@ services:
     build: .
     image: python4st:latest
     volumes:
-      - ./scripts:/upowerlog
+      - ./modules:/upowerlog
     devices:
       - "/dev/ttyXRUSB0:/dev/ttyXRUSB0"
     depends_on:
@@ -39,8 +39,8 @@ services:
 
   grafana:
     image:  grafana/grafana-oss:latest
-    #volumes:
-    #  - ./grafana/data:/var/lib/grafana
+    volumes:
+      - ./grafana/data:/var/lib/grafana
     depends_on:
       - epsolartracker
       - db

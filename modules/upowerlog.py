@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
+from math import nan
 
 registers={
     'util_volt': [ 0x3500, 2 ],
@@ -18,7 +19,7 @@ registers={
     'pv_pwr': [ 0x351B, 2 ],
     'pv_charge_volt': [ 0x351D, 2 ],
     'pv_charge_cur': [ 0x351E, 2 ],
-    'pv_charge_power' : [ 0x351F, 2 ],
+    'pv_charge_pwr' : [ 0x351F, 2 ],
 
     'inv_volt' : [ 0x3533, 2 ],
     'inv_cur' : [ 0x3534, 2 ],
@@ -28,9 +29,10 @@ registers={
     'batt_volt' : [ 0x354C, 2 ],
     'batt_temp' : [ 0x354F, 2 ],
     'batt_soc' : [ 0x3550, 0 ],
+    
     'bypass_volt' : [ 0x3558, 2 ],
     'bypass_cur' : [ 0x3559, 2 ],
-    'bypass_pwr' : [ 0x3559, 2 ],
+    'bypass_pwr' : [ 0x355A, 2 ],
 }
 
 class EPCom:
@@ -56,7 +58,7 @@ class EPCom:
         try:
             retval = self.instrument.read_register(register, decimals, func)
         except:
-            retval = -1.0
+            retval = nan
         return retval
 
 # connect to inverter
