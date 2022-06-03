@@ -68,7 +68,7 @@ up.connect();
 # connect to db
 try:
     # You can generate a Token from the "Tokens Tab" in the UI
-    token = "pcq_p2IPBEI7lxXfks9WX9Sh709wrIBteLuUQOVvruaB8pVcFPOQQTsAu66zeH0n00YtkXYF6IabcSmKL3aaPg=="
+    token = "28nkJOQoVxFQfUxh10vJKhqahYvwS3yaOcF0vAiNHtYAeb9MUyXVd0ZRbCaj2mf1zzs3n9j4D6MMoX4E3zno7Q=="
     org = "org"
     bucket = "solardata"
     dbclient = InfluxDBClient(url="http://db:8086", token=token)

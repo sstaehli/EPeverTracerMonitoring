@@ -1,0 +1,541 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "iteration": 1654281538994,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "h28U21rnk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Gain"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyCHF"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${pv_energy}",
+          "hide": false,
+          "refId": "Energy",
+          "type": "math"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${pv_energy} *  ${energy_price}",
+          "hide": false,
+          "refId": "Gain",
+          "type": "math"
+        }
+      ],
+      "title": "PV Energy",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "h28U21rnk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cost"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyCHF"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${utility_energy}",
+          "hide": false,
+          "refId": "Energy",
+          "type": "math"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${utility_energy} * ${energy_price}",
+          "hide": false,
+          "refId": "Cost",
+          "type": "math"
+        }
+      ],
+      "title": "Utility Energy",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "h28U21rnk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "Saving"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyCHF"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${bypass_energy}",
+          "hide": false,
+          "refId": "Server",
+          "type": "math"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${inv_energy} - ${bypass_energy}",
+          "hide": false,
+          "refId": "PV Inverter",
+          "type": "math"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "(${bypass_energy} - ${utility_energy}) * ${energy_price}",
+          "hide": false,
+          "refId": "Saving",
+          "type": "math"
+        }
+      ],
+      "title": "Server Energy",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "h28U21rnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "pv_pwr": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "PV"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "unit": "kwatth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Utility"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 5,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": []
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${pv_energy}",
+          "hide": false,
+          "refId": "PV",
+          "type": "math"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "${utility_energy}",
+          "hide": false,
+          "refId": "Utility",
+          "type": "math"
+        }
+      ],
+      "title": "Energy Mix",
+      "type": "piechart"
+    }
+  ],
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "hide": 2,
+        "label": "Energy Price",
+        "name": "energy_price",
+        "query": "0.25",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0.5890266166666668",
+          "value": "0.5890266166666668"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "h28U21rnk"
+        },
+        "definition": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"pv_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "hide": 0,
+        "includeAll": false,
+        "label": "PV Energy",
+        "multi": false,
+        "name": "pv_energy",
+        "options": [],
+        "query": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"pv_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0.5494064791666665",
+          "value": "0.5494064791666665"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "h28U21rnk"
+        },
+        "definition": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"util_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Utility Energy",
+        "multi": false,
+        "name": "utility_energy",
+        "options": [],
+        "query": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"util_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1.1159334291666672",
+          "value": "1.1159334291666672"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "h28U21rnk"
+        },
+        "definition": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"bypass_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Bypass Energy",
+        "multi": false,
+        "name": "bypass_energy",
+        "options": [],
+        "query": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"bypass_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1.1169182763888899",
+          "value": "1.1169182763888899"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "h28U21rnk"
+        },
+        "definition": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"inv_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Inverter Energy",
+        "multi": false,
+        "name": "inv_energy",
+        "options": [],
+        "query": "from(bucket: \"solardata\")\r\n  |> range(start: 2022-01-01T00:00:00Z)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"solards\" and\r\n    r._field == \"inv_pwr\"\r\n  )\r\n  |> integral(unit: 1h)\r\n  |> map(fn: (r) => ({ r with _value: r._value * 0.001}))",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Energy",
+  "uid": "dbQJz89nk",
+  "version": 9,
+  "weekStart": ""
+}
